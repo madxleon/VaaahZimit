@@ -1,0 +1,103 @@
+﻿<Window x:Class="VaaahZemir.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VaaahZemir"
+        mc:Ignorable="d"        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
+        xmlns:local1="clr-namespace:VaaahZemir"
+        fw:AcrylicWindow.Enabled="True" Height="650" Width="950" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" IsTabStop="False" WindowStyle="None" Visibility="Visible">
+    <Grid>           
+        
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid fw:PointerTracker.Enabled="True" Background="#01FFFFFF">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">                    
+                    <TextBlock Text="VaaahZemir 3000" FontSize="12" Margin="10" VerticalAlignment="Center"/>
+                </StackPanel>
+                <ListViewItem x:Name="HomeButton" Padding="0">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Account" Margin="15"/>
+                        <TextBlock Text="Профиль" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </ListViewItem>
+                <TextBlock Text="Функции" Margin="15" FontWeight="DemiBold"/>
+                <ListView FontSize="15">
+                    <ListViewItem x:Name="TimerButton" Padding="1">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Timer" Margin="15"/>
+                            <TextBlock Text="Таймеры" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="ReportButton" Padding="1">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Report" Margin="15"/>
+                            <TextBlock Text="Отчет" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="SkillButton" Padding="1">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="AccountArrowLeft" Margin="15"/>
+                            <TextBlock Text="Skill" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="DonatButton" Padding="1">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Money" Margin="15"/>
+                            <TextBlock Text="Донаты" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="CloackGrid" Grid.Column="1"  Visibility="Collapsed">
+            <materialDesign:Transitioner SelectedIndex="0" AutoApplyTransitionOrigins="True">
+                <Grid>
+                    <local:UserControlAlarms/>
+                </Grid>
+                <materialDesign:TransitionerSlide>
+                    <materialDesign:TransitionerSlide.BackwardWipe>
+                        <materialDesign:CircleWipe/>
+                    </materialDesign:TransitionerSlide.BackwardWipe>
+                    <materialDesign:TransitionerSlide.ForwardWipe>
+                        <materialDesign:SlideWipe Direction="Right"/>
+                    </materialDesign:TransitionerSlide.ForwardWipe>
+                    <local:UserControlNewAlarm/>
+                </materialDesign:TransitionerSlide>
+            </materialDesign:Transitioner>
+
+        </Grid>
+        
+        <Grid x:Name="TimerGrid" Grid.Column="1" Background="White" Visibility="Hidden">
+            <materialDesign:Transitioner SelectedIndex="0" AutoApplyTransitionOrigins="True">
+                <Grid>
+                    <local:UserControlTimer/>
+                </Grid>
+            </materialDesign:Transitioner>
+        </Grid>
+
+
+        <Grid x:Name="ReportGrid" Grid.Column="1" Background="White" Visibility="Visible">
+            <materialDesign:Transitioner SelectedIndex="0" AutoApplyTransitionOrigins="True">
+                <Grid>
+                    <local:UserControlReport/>
+                </Grid>
+            </materialDesign:Transitioner>
+
+
+
+        </Grid>
+
+
+
+
+
+    </Grid>
+</Window>

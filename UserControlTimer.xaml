@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="VaaahZemir.UserControlTimer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VaaahZemir"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"             
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="800" Height="451">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="79*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="0,0,0,352" Grid.ColumnSpan="2">
+            <TextBlock x:Name="TextBlock_Job" Width="210" FontSize="55" OpacityMask="Black" Foreground="Black"><Run Text="00:00:00"/></TextBlock>
+            <TextBlock Width="100" Foreground="Black"><Run Text="Время на работе"/></TextBlock>
+        </StackPanel>
+
+        <Button x:Name="ButtonStartTimeTicket" Visibility="Visible" Click="ButtonStartTimeTicket_Click"
+            Style="{DynamicResource MaterialDesignFloatingActionButton}"
+                Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Grid.Row="0" Margin="121.5,0,0,240" Background="#FF2196F3" Grid.Column="1">
+            <materialDesign:PackIcon Kind="ClockOutline"/>
+        </Button>
+        <Button  x:Name="ButtonStartTimeTicketDone" Visibility="Hidden" Click="ButtonStartTimeTicketDone_Click"
+            Style="{DynamicResource MaterialDesignFloatingActionButton}"
+            Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Grid.Row="0" Margin="449.5,0,0,240" Background="#FF05F948" Grid.Column="1">
+            <materialDesign:PackIcon Kind="Done"/>
+        </Button>
+        <Button x:Name="ButtonExit"  Click="ButtonExit_Click"
+            Style="{DynamicResource MaterialDesignFloatingActionButton}"
+            Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Grid.Row="0" Margin="430.5,0,0,385" Background="#FFCD0505" Grid.Column="1">
+            <materialDesign:PackIcon Kind="Home"/>
+        </Button>
+
+        <Button  x:Name="PauseTicket" Visibility="Hidden" Click="PauseTicket_Click"
+            Style="{DynamicResource MaterialDesignFloatingActionButton}"
+            Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Grid.Row="0" Margin="279,0,0,165" Background="Yellow" Grid.Column="1">
+            <materialDesign:PackIcon Kind="Cigarette"/>
+        </Button>
+
+        <Button  x:Name="PauseTicketStop" Visibility="Hidden" Click="PauseTicketStop_Click"
+            Style="{DynamicResource MaterialDesignFloatingActionButton}"
+            Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Grid.Row="0" Margin="279,0,0,165" Background="YellowGreen" Grid.Column="1">
+            <materialDesign:PackIcon Kind="Work"/>
+        </Button>
+
+
+
+
+        <TextBox x:Name="TextBoxTicketName" Margin="314,126,296,293" TextChanged="TextBox_TextChanged" MaxLines="7" UndoLimit="7" PreviewTextInput="NumberValidationTextBox" Visibility="Visible" Grid.Column="1" Foreground="Black" />
+        <TextBlock x:Name="TextBlock_TecketName_2" Margin="314,138,346,293" Visibility="Hidden" Grid.Column="1" Foreground="Black"><Run Text=""/></TextBlock>
+        <TextBlock x:Name="TextBlock_Check_TecketName" Margin="238.5,363,300,67" Visibility="Collapsed" Grid.Column="1"><Run Text="Введите номер тикета!!!" Foreground="Red"/></TextBlock>
+
+        <StackPanel Margin="0,138,0,198" Grid.ColumnSpan="2">
+
+            <TextBlock x:Name="TextBlock_TecketName" Margin="350,0,397,0" Foreground="Black"><Run Text="Ticket№" Foreground="Black"/></TextBlock>
+
+            <TextBlock x:Name="TextBlock_TicketTime" Width="210" FontSize="55" OpacityMask="Black" Foreground="Black" ><Run Text="00:00:00"/></TextBlock>
+        </StackPanel>
+
+
+
+    </Grid>
+</UserControl>
